@@ -3,6 +3,12 @@ import dev.extframework.minecraft.MojangNamespaces
 import dev.extframework.minecraft.minecraft
 
 extension {
+    metadata {
+        name = "MDK Init hooks"
+        app = "minecraft"
+        developers = listOf("extframework")
+        description = "A list of hooks into the initialization phase of Minecraft"
+    }
     partitions {
         main {
             extensionClass = "dev.extframework.mdk.init.InitHook"

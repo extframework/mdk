@@ -1,9 +1,11 @@
 import dev.extframework.gradle.common.extFramework
 import dev.extframework.gradle.common.mixin
 import dev.extframework.core.main.main
+import dev.extframework.gradle.publish.ExtensionPublication
 import dev.extframework.minecraft.MojangNamespaces
 import dev.extframework.minecraft.minecraft
 import dev.extframework.minecraft.task.LaunchMinecraft
+import kotlin.jvm.java
 
 plugins {
     kotlin("jvm") version "2.1.20"
@@ -73,5 +75,19 @@ allprojects {
 
     kotlin {
         jvmToolchain(8)
+    }
+
+    publishing {
+        publications {
+            create("prod", ExtensionPublication::class.java)
+        }
+        repositories {
+            maven {
+                url = uri("https://repo.extframework.dev")
+                credentials {
+                    password = properties["creds.ext.key"] as? String
+                }
+            }
+        }
     }
 }

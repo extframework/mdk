@@ -3,6 +3,12 @@ import dev.extframework.minecraft.MojangNamespaces
 import dev.extframework.minecraft.minecraft
 
 extension {
+    metadata {
+        name = "MDK Keybinding"
+        app = "minecraft"
+        developers = listOf("extframework")
+        description = "The Keybinding API in the MDK"
+    }
     partitions {
         main {
             extensionClass = "dev.extframework.mdk.keybind.Keybinds"

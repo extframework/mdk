@@ -22,6 +22,12 @@ dependencies {
 }
 
 extension {
+    metadata {
+        name = "MDK Resource Loader"
+        app = "minecraft"
+        developers = listOf("extframework")
+        description = "Resource loading for the MDK"
+    }
     partitions {
         main {
             extensionClass = "dev.extframework.mdk.resource.ResourceLoader"
