@@ -1,4 +1,4 @@
 [repositories]
 
 [parents]
-minecraft = { group = "dev.extframework.core", version = "1.0.6-BETA", use = "local" }
+minecraft = { group = "dev.extframework.core", version = "1.0.6-BETA", use = "central" }
