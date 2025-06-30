@@ -1,0 +1,24 @@
+name: publish-snapshot
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  publish-to-maven:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning Repo
+        uses: actions/checkout@v3
+      - name: Setting up Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Grant permissions to Gradle
+        run: chmod +x gradlew
+      - name: Setup build cache
+        run: ./gradlew  -Dorg.gradle.jvmargs=-Xmx4096m
+        continue-on-error: true
+      - name: Publish with Gradle
+        if: always()
+        run: ./gradlew :publishAll -Pcreds.maven.user='${{ secrets.MAVEN_REPO_USER }}' -Pcreds.maven.key='${{ secrets.MAVEN_REPO_PASS }}' -Pcreds.ext.key='${{ secrets.EXTENSION_REPO_KEY }}' -Dorg.gradle.jvmargs=-Xmx4096m
