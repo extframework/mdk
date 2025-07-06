@@ -1,8 +1,8 @@
 [repositories]
-central = true
+local = true
 
 [parents]
-minecraft = { group = "dev.extframework.core", version = "1.0.6-BETA", use = "central" }
+minecraft = { group = "com.kaolinmc.core", version = "1.0.7-BETA", use = "central" }
 init-hook = { isBuild = true }
 resource-loader = { isBuild = true }
 keybind = { isBuild = true }

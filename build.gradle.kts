@@ -1,34 +1,28 @@
-import dev.extframework.gradle.common.extFramework
-import dev.extframework.gradle.common.mixin
-import dev.extframework.core.main.main
-import dev.extframework.gradle.publish.ExtensionPublication
-import dev.extframework.minecraft.MojangNamespaces
-import dev.extframework.minecraft.minecraft
-import dev.extframework.minecraft.task.LaunchMinecraft
+import com.kaolinmc.gradle.common.*
+import com.kaolinmc.core.main.main
+import com.kaolinmc.kiln.publish.ExtensionPublication
+import com.kaolinmc.minecraft.MojangNamespaces
+import com.kaolinmc.minecraft.task.LaunchMinecraft
 import kotlin.jvm.java
 
 plugins {
     kotlin("jvm") version "2.1.20"
-    id("dev.extframework") version "1.4.1"
-    id("dev.extframework.common") version "1.1"
+    id("kaolin.kiln") version "0.1"
+    id("com.kaolinmc.common") version "0.1"
 }
 
 extension {
     metadata {
         name = "Minecraft Development Kit"
         app = "minecraft"
-        developers = listOf("extframework")
+        developers = listOf("kaolin")
         description = "A tooling kit for Minecraft development"
     }
     partitions {
         main {
-            extensionClass = "dev.extframework.mdk.MinecraftDevelopmentKit"
+            extensionClass = "com.kaolinmc.mdk.MinecraftDevelopmentKit"
         }
     }
-}
-
-dependencyManagement {
-    mixin("1.0.3-SNAPSHOT")
 }
 
 val exts = listOf(
@@ -61,14 +55,14 @@ val launch1_21_4 by tasks.registering(LaunchMinecraft::class) {
 
 allprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "dev.extframework.common")
-    apply(plugin = "dev.extframework")
+    apply(plugin = "com.kaolinmc.common")
+    apply(plugin = "kaolin.kiln")
 
-    group = "dev.extframework"
-    version = "1.0-BETA"
+    group = "com.kaolinmc"
+    version = "1.0.1-BETA"
 
     repositories {
-        extFramework()
+        kaolin()
         mavenCentral()
         mavenLocal()
     }
@@ -83,7 +77,7 @@ allprojects {
         }
         repositories {
             maven {
-                url = uri("https://repo.extframework.dev")
+                url = uri("https://repo.kaolinmc.com")
                 credentials {
                     password = properties["creds.ext.key"] as? String
                 }

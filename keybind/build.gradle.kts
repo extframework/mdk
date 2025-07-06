@@ -1,21 +1,21 @@
-import dev.extframework.core.main.main
-import dev.extframework.minecraft.MojangNamespaces
-import dev.extframework.minecraft.minecraft
+import com.kaolinmc.core.main.main
+import com.kaolinmc.minecraft.MojangNamespaces
+import com.kaolinmc.minecraft.minecraft
 
 extension {
     metadata {
         name = "MDK Keybinding"
         app = "minecraft"
-        developers = listOf("extframework")
+        developers = listOf("kaolin")
         description = "The Keybinding API in the MDK"
     }
     partitions {
         main {
-            extensionClass = "dev.extframework.mdk.keybind.Keybinds"
+            extensionClass = "com.kaolinmc.mdk.keybind.Keybinds"
         }
         minecraft("1.21+") {
             mappings = MojangNamespaces.deobfuscated
-            entrypoint = "dev.extframework.mdk.keybind.Initializer"
+            entrypoint = "com.kaolinmc.mdk.keybind.Initializer"
             dependencies {
                 minecraft("1.21")
             }

@@ -1,8 +1,8 @@
-import dev.extframework.core.main.main
-import dev.extframework.gradle.common.mixin
-import dev.extframework.minecraft.MojangNamespaces
-import dev.extframework.minecraft.minecraft
-import dev.extframework.minecraft.task.LaunchMinecraft
+import com.kaolinmc.core.main.main
+import com.kaolinmc.gradle.common.mixin
+import com.kaolinmc.minecraft.MojangNamespaces
+import com.kaolinmc.minecraft.minecraft
+import com.kaolinmc.minecraft.task.LaunchMinecraft
 import org.gradle.kotlin.dsl.assign
 
 repositories {
@@ -25,15 +25,15 @@ extension {
     metadata {
         name = "MDK Resource Loader"
         app = "minecraft"
-        developers = listOf("extframework")
+        developers = listOf("kaolin")
         description = "Resource loading for the MDK"
     }
     partitions {
         main {
-            extensionClass = "dev.extframework.mdk.resource.ResourceLoader"
+            extensionClass = "com.kaolinmc.mdk.resource.ResourceLoader"
         }
         tweaker {
-            tweakerClass = "dev.extframework.mdk.resource.ResourceTweaker"
+            tweakerClass = "com.kaolinmc.mdk.resource.ResourceTweaker"
             dependencies {
                 implementation(mixin())
             }

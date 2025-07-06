@@ -1,17 +1,17 @@
-import dev.extframework.core.main.main
-import dev.extframework.minecraft.MojangNamespaces
-import dev.extframework.minecraft.minecraft
+import com.kaolinmc.core.main.main
+import com.kaolinmc.minecraft.MojangNamespaces
+import com.kaolinmc.minecraft.minecraft
 
 extension {
     metadata {
         name = "MDK Init hooks"
         app = "minecraft"
-        developers = listOf("extframework")
+        developers = listOf("kaolin")
         description = "A list of hooks into the initialization phase of Minecraft"
     }
     partitions {
         main {
-            extensionClass = "dev.extframework.mdk.init.InitHook"
+            extensionClass = "com.kaolinmc.mdk.init.InitHook"
         }
         minecraft("1.21+") {
             mappings = MojangNamespaces.deobfuscated
