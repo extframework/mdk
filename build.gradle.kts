@@ -7,8 +7,8 @@ import kotlin.jvm.java
 
 plugins {
     kotlin("jvm") version "2.1.20"
-    id("kaolin.kiln") version "0.1"
-    id("com.kaolinmc.common") version "0.1"
+    id("kaolin.kiln") version "0.1.5"
+    id("com.kaolinmc.common") version "0.1.5"
 }
 
 extension {
@@ -59,12 +59,11 @@ allprojects {
     apply(plugin = "kaolin.kiln")
 
     group = "com.kaolinmc"
-    version = "1.0.1-BETA"
+    version = "1.0.2-BETA"
 
     repositories {
         kaolin()
         mavenCentral()
-        mavenLocal()
     }
 
     kotlin {

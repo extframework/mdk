@@ -7,7 +7,6 @@ pluginManagement {
             url = uri("https://maven.kaolinmc.com/snapshots")
         }
         gradlePluginPortal()
-        mavenLocal()
     }
 }
 
