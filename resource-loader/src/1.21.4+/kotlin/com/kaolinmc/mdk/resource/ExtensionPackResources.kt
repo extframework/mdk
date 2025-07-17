@@ -34,7 +34,7 @@ class ExtensionPackResources(
         path: String,
         output: PackResources.ResourceOutput
     ) {
-        val basePath = Paths.get(type.directory, namespace, path).toString()
+        val basePath = "${type.directory}/$namespace/$path"
 
         ResourceTweaker.Companion.namespacedResources[namespace]
             ?.flatMap { ref ->
